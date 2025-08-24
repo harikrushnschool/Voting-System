@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>School Election Voting</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Haettenschweiler 5px, 'Arial Narrow Bold', sans-serif, sans-serif;
+      background: linear-gradient(to bottom, rgb(40, 40, 40), rgb(40, 40, 40), rgb(40, 40, 40));
+      text-align: center;
+      color: #00ccff;
+      
+    }
+
+    header {
+      padding: 20px;
+    }
+
+    header img {
+      height: 150px;
+    }
+header {
+  position: relative;
+  padding: 15px;
+  background-color: #ffffff; /* 🔷 your chosen color */
+  border-radius: 30px;     /* 👈 curved shape */
+  margin: 10px;
+  
+}
+
+    h1 {
+      margin: 10px 0;
+      font-size: 60px;
+      color: rgb(255, 230, 0);
+    }
+
+    .candidates {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .candidate {
+      background: rgba(9, 9, 9, 0.1);
+      border-radius: 40px;
+      padding: 40px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .candidate:hover {
+      background: rgba(0, 0, 0, 0.496);
+      transform: scale(1.05);
+    }
+
+    .candidate img {
+      width: 100px;
+      height: 100px;
+      border-radius: 00px;
+    }
+
+    footer {
+      margin-top: 10px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .candidate .info h2 {
+  position: relative;
+  display: inline-block;
+  font-size: 28px;
+  color: #fff;
+}
+
+    .results {
+      margin-top: 30px;
+      padding: 25px;
+      background: rgba(0,0,0,0.5);
+      border-radius: 15px;
+      display: none; /* 🔹 default hidden */
+    }
+
+    .toggle-btn, .reset-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+       .candidate .info h2 {
+  margin: 0 0 10px 0;
+  font-size: 50px; /* 👈 This is the current size */
+  color: #fff;
+  font-weight: bold;
+}
+.candidate .info p {
+  margin: 0 0 10px 0;
+  font-size: 30px; /* 👈 This is the current size */
+  color: rgb(255, 128, 0);
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+    .toggle-btn {
+      background: rgb(255, 255, 0);
+      color: black;
+    }
+
+    .toggle-btn:hover {
+      background: orange;
+    }
+
+    .reset-btn {
+      background: red;
+      color: white;
+    }
+
+    .reset-btn:hover {
+      background: darkred;
+    }
+  </style>
+</head> 
+<body>
+
+  <!-- School Logo -->
+  <header>
+    <img src="c:\Users\Admin\Desktop\Election Day\HRK Logo (Landscape).png" alt="School Logo">
+  </header>
+
+  <!-- Title -->
+</body>
+  <h1>HEAD BOY & HEAD GIRL ELECTION</h1>
+  
+
+  <!-- Candidates Grid -->
+  <div class="candidates">
+  <div class="candidate" onclick="vote('Candidate1')">
+    <div class="candidate-layout">
+      <img src="c:\Users\Admin\Desktop\Election Day\Logos\PNG\Logo_3-removebg-preview.png" alt="Candidate 1 Logo">
+      <div class="info">
+        <h2>આયુષ એચ. દયાહંસ</h2> 
+        <p>Bright Students</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="candidate" onclick="vote('Candidate2')">
+    <div class="candidate-layout">
+      <img src="c:\Users\Admin\Desktop\Election Day\Logos\PNG\Logo_4-removebg-preview.png" alt="Candidate 2 Logo">
+      <div class="info">
+        <h2>જય જી. બુધેલીયા</h2>
+        <p>The Achievers</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="candidate" onclick="vote('Candidate3')">
+    <div class="candidate-layout">
+      <img src="c:\Users\Admin\Desktop\Election Day\Logos\PNG\Logo_1-removebg-preview.png" alt="Candidate 3 Logo">
+      <div class="info">
+        <h2>કિયા જે. કુવાડીયા</h2>
+        <p>Unity</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="candidate" onclick="vote('Candidate4')">
+    <div class="candidate-layout">
+      <img src="c:\Users\Admin\Desktop\Election Day\Logos\PNG\Logo_2-removebg-preview.png" alt="Candidate 4 Logo">
+      <div class="info">
+        <h2>માહી પી. મોતીસરિયા</h2>
+        <p>Alfa Achievers</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+  <!-- Show/Hide Results Button -->
+  <button class="toggle-btn" onclick="askPassword('results')">Show Results</button>
+  <!-- Reset Votes Button -->
+  <button class="reset-btn" onclick="askPassword('reset')">Reset Vote</button>
+
+  <!-- Results (Hidden by default) -->
+  <div class="results" id="resultsBox">
+    <h2>Results</h2>
+    <p id="c1">Bright Students (આયુષ દયાહંસ): 0</p>
+    <p id="c2">The Achievers (જય બુધેલીયા): 0</p>
+    <p id="c3">Unity (કિયા કુવાડીયા): 0</p>
+    <p id="c4">Alfa Achievers (માહી મોતીસરિયા): 0</p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    HRK ELECTION DAY 2025-26
+  </footer>
+
+  <script>
+    const PASSWORD = "VS2025";
+
+    // Load from Local Storage or initialize
+    let votes = JSON.parse(localStorage.getItem("votes")) || {
+      Candidate1: 0,
+      Candidate2: 0,
+      Candidate3: 0,
+      Candidate4: 0
+    };
+
+    // Function to cast vote
+    function vote(candidate) {
+      votes[candidate]++;
+      localStorage.setItem("votes", JSON.stringify(votes));
+      alert("Your vote has been recorded!");
+    }
+
+    // Update Results on Screen
+    function updateResults() {
+      document.getElementById("c1").innerText = "Bright Students  (આયુષ દયાહંસ): " + votes.Candidate1;
+      document.getElementById("c2").innerText = "The Achievers (જય બુધેલીયા): " + votes.Candidate2;
+      document.getElementById("c3").innerText = "Unity  (કિયા કુવાડીયા): " + votes.Candidate3;
+      document.getElementById("c4").innerText = "Alfa Achievers  (માહી મોતીસરિયા): " + votes.Candidate4;
+    }
+
+    // Password check for buttons
+    function askPassword(action) {
+      const userInput = prompt("Enter Password:");
+      if (userInput === PASSWORD) {
+        if (action === "results") {
+          toggleResults();
+        } else if (action === "reset") {
+          resetVotes();
+        }
+      } else {
+        alert("Wrong Password! Please Try Agian!");
+      }
+    }
+
+    // Toggle show/hide results
+    function toggleResults() {
+      const box = document.getElementById("resultsBox");
+      const btn = document.querySelector(".toggle-btn");
+
+      if (box.style.display === "none") {
+        updateResults();
+        box.style.display = "block";
+        btn.innerText = "Hide Results";
+      } else {
+        box.style.display = "none";
+        btn.innerText = "Show Results";
+      }
+    }
+
+    // Reset all votes
+    function resetVotes() {
+      if (confirm("Are you sure you want to reset all votes?")) {
+        votes = { Candidate1: 0, Candidate2: 0, Candidate3: 0, Candidate4: 0 };
+        localStorage.setItem("votes", JSON.stringify(votes));
+        updateResults();
+        alert("All votes have been reset to 0!");
+      }
+    }
+
+    // On load keep results hidden
+    document.getElementById("resultsBox").style.display = "none";
+  </script>
+
+</body>
+</html>
